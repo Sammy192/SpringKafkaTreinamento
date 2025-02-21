@@ -1,6 +1,6 @@
-package br.com.rocha.api_boleto.repositories;
+package br.com.rocha.apiboleto.repositories;
 
-import br.com.rocha.api_boleto.entities.BoletoEntity;
+import br.com.rocha.apiboleto.entities.BoletoEntity;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

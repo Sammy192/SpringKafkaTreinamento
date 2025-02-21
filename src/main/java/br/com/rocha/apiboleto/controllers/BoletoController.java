@@ -1,8 +1,8 @@
-package br.com.rocha.api_boleto.controllers;
+package br.com.rocha.apiboleto.controllers;
 
-import br.com.rocha.api_boleto.dtos.BoletoDTO;
-import br.com.rocha.api_boleto.dtos.BoletoRequestDTO;
-import br.com.rocha.api_boleto.services.BoletoService;
+import br.com.rocha.apiboleto.dtos.BoletoDTO;
+import br.com.rocha.apiboleto.dtos.BoletoRequestDTO;
+import br.com.rocha.apiboleto.services.BoletoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/api/boleto")
 @AllArgsConstructor
+//@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class BoletoController {
 
     private final BoletoService boletoService;

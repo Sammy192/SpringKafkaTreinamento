@@ -1,6 +1,6 @@
-package br.com.rocha.api_boleto.dtos;
+package br.com.rocha.apiboleto.dtos;
 
-import br.com.rocha.api_boleto.entities.enums.SituacaoBoletoEnum;
+import br.com.rocha.apiboleto.entities.enums.SituacaoBoletoEnum;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class BoletoDTO {
-    private Long id;
     private String codigoBarras;
     private SituacaoBoletoEnum situacaoBoleto;
     private LocalDateTime dataCriacao;

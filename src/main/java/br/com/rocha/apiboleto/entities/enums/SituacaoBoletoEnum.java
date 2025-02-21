@@ -1,4 +1,4 @@
-package br.com.rocha.api_boleto.entities.enums;
+package br.com.rocha.apiboleto.entities.enums;
 
 public enum SituacaoBoletoEnum {
 

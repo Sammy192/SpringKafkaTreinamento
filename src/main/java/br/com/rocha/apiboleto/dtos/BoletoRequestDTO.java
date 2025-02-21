@@ -1,12 +1,15 @@
-package br.com.rocha.api_boleto.dtos;
+package br.com.rocha.apiboleto.dtos;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class BoletoRequestDTO {
+
     private String codigoBarras;
 }

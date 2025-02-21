@@ -1,4 +1,4 @@
-package br.com.rocha.api_boleto;
+package br.com.rocha.apiboleto;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

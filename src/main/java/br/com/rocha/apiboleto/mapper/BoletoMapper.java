@@ -1,7 +1,7 @@
-package br.com.rocha.api_boleto.mapper;
+package br.com.rocha.apiboleto.mapper;
 
-import br.com.rocha.api_boleto.dtos.BoletoDTO;
-import br.com.rocha.api_boleto.entities.BoletoEntity;
+import br.com.rocha.apiboleto.dtos.BoletoDTO;
+import br.com.rocha.apiboleto.entities.BoletoEntity;
 
 public class BoletoMapper {
 

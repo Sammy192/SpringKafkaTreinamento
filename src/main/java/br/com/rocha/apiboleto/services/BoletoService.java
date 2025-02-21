@@ -1,10 +1,10 @@
-package br.com.rocha.api_boleto.services;
+package br.com.rocha.apiboleto.services;
 
-import br.com.rocha.api_boleto.dtos.BoletoDTO;
-import br.com.rocha.api_boleto.entities.BoletoEntity;
-import br.com.rocha.api_boleto.entities.enums.SituacaoBoletoEnum;
-import br.com.rocha.api_boleto.mapper.BoletoMapper;
-import br.com.rocha.api_boleto.repositories.BoletoRepository;
+import br.com.rocha.apiboleto.dtos.BoletoDTO;
+import br.com.rocha.apiboleto.entities.BoletoEntity;
+import br.com.rocha.apiboleto.entities.enums.SituacaoBoletoEnum;
+import br.com.rocha.apiboleto.mapper.BoletoMapper;
+import br.com.rocha.apiboleto.repositories.BoletoRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor(onConstructor = @__(@Autowired))
 public class BoletoService {
     
     private BoletoRepository boletoRepository;

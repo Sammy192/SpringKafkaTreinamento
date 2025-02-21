@@ -1,6 +1,6 @@
-package br.com.rocha.api_boleto.entities;
+package br.com.rocha.apiboleto.entities;
 
-import br.com.rocha.api_boleto.entities.enums.SituacaoBoletoEnum;
+import br.com.rocha.apiboleto.entities.enums.SituacaoBoletoEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,4 +1,4 @@
-package br.com.rocha.api_boleto;
+package br.com.rocha.apiboleto;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
