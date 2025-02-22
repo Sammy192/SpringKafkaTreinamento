@@ -5,8 +5,8 @@ import br.com.rocha.apiboleto.entities.BoletoEntity;
 import br.com.rocha.apiboleto.entities.enums.SituacaoBoletoEnum;
 import br.com.rocha.apiboleto.mapper.BoletoMapper;
 import br.com.rocha.apiboleto.repositories.BoletoRepository;
+import br.com.rocha.apiboleto.services.exceptions.ApplicationException;
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -20,7 +20,7 @@ public class BoletoService {
     
     public BoletoDTO salvar(String codigoBarras) {
         if (boletoRepository.findByCodigoBarras(codigoBarras).isPresent()) {
-            throw new RuntimeException("Já existe uma solicitação de pagamento para esse boleto.");
+            throw new ApplicationException("Já existe uma solicitação de pagamento para esse boleto.");
         }
         
         BoletoEntity boletoEntity = BoletoEntity.builder()
