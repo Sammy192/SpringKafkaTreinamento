@@ -6,6 +6,7 @@ import br.com.rocha.apiboleto.entities.enums.SituacaoBoletoEnum;
 import br.com.rocha.apiboleto.mapper.BoletoMapper;
 import br.com.rocha.apiboleto.repositories.BoletoRepository;
 import br.com.rocha.apiboleto.services.exceptions.ApplicationException;
+import br.com.rocha.apiboleto.services.kafka.BoletoProducer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 public class BoletoService {
     
     private BoletoRepository boletoRepository;
+    private BoletoProducer boletoProducer;
     
     public BoletoDTO salvar(String codigoBarras) {
         if (boletoRepository.findByCodigoBarras(codigoBarras).isPresent()) {
@@ -32,6 +34,7 @@ public class BoletoService {
         
         boletoRepository.save(boletoEntity);
 
+        boletoProducer.enviarMensagem(BoletoMapper.toAvro(boletoEntity));
         return BoletoMapper.toDto(boletoEntity);
     }
 }
