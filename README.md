@@ -36,6 +36,57 @@ A aplicacao 'apiBoleto' como um consumer recebe o boleto atualizado e atualiza o
 
 ![Alt Text](./images/arquitetura.gif)
 
+# Para acessar:
+Inicie os containers docker com 'docker compose up -d'
+acesse o painel de gerenciamento do Kafka em 'http://localhost:9021'
+Crie o tópico: 'solicitacao-boleto'
+Coloque como shema o seguinte json: Valide e Create. Vide imagem abaixo
+````
+{
+    "type": "record",
+    "namespace": "br.com.rocha.avro",
+    "name": "Boleto",
+    "fields": [
+        {
+            "name": "codigoBarras",
+            "type": "string"
+        },
+        {
+            "name": "situacaoBoleto",
+            "type": "int"
+        }
+    ]
+}
+````
+
+![image](https://github.com/user-attachments/assets/53988335-6ebb-4dbb-abbe-51a659de9ab8)
+
+Inicie a aplicação 'ApiBoleto'
+Inicie a aplicação 'ValidadorBoleto'
+
+No painel de gerenciamento do Kafka
+adicione o schema registry para o topico já criado pela aplicação 'notificacao-boleto'. Valide e Create.
+
+````
+{
+    "type": "record",
+    "namespace": "br.com.rocha.avro",
+    "name": "Boleto",
+    "fields": [
+        {
+            "name": "codigoBarras",
+            "type": "string"
+        },
+        {
+            "name": "situacaoBoleto",
+            "type": "int"
+        }
+    ]
+}
+````
+![image](https://github.com/user-attachments/assets/4a2a07a2-8e51-400f-b16e-9b1cab4c83b4)
+
+
 Para acessar documentação no Swagger utilize: 'http://localhost:8282/swagger-ui.html'
 
 Abaixo alguns codigosBarras de exemplo:
