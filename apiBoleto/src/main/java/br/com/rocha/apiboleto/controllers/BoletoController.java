@@ -7,10 +7,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/boleto")
@@ -23,5 +20,11 @@ public class BoletoController {
     @PostMapping
     public ResponseEntity<BoletoDTO> salvar(@Valid @RequestBody BoletoRequestDTO boletoRequestDTO) {
         return new ResponseEntity<>(boletoService.salvar(boletoRequestDTO.getCodigoBarras()), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/{codigoBarras}")
+    public ResponseEntity<BoletoDTO> buscarBoletoCodigoBarras(@PathVariable("codigoBarras") String codigoBarras) {
+        var boletoDTO = boletoService.buscarBoletoPorCodigoBarras(codigoBarras);
+        return ResponseEntity.ok(boletoDTO);
     }
 }

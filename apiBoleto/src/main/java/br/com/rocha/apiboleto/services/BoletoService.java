@@ -39,6 +39,10 @@ public class BoletoService {
         return BoletoMapper.toDto(boletoEntity);
     }
 
+    public BoletoDTO buscarBoletoPorCodigoBarras(String codigoBarras) {
+        return BoletoMapper.toDto(recuperaBoleto(codigoBarras));
+    }
+
     private BoletoEntity recuperaBoleto(String codigoBarras) {
         return boletoRepository.findByCodigoBarras(codigoBarras)
                 .orElseThrow(() -> new ResourceNotFoundException("Boleto não encontrado"));
