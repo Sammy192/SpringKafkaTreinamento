@@ -6,6 +6,7 @@ import br.com.rocha.apiboleto.entities.enums.SituacaoBoletoEnum;
 import br.com.rocha.apiboleto.mapper.BoletoMapper;
 import br.com.rocha.apiboleto.repositories.BoletoRepository;
 import br.com.rocha.apiboleto.services.exceptions.ApplicationException;
+import br.com.rocha.apiboleto.services.exceptions.ResourceNotFoundException;
 import br.com.rocha.apiboleto.services.kafka.BoletoProducer;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -36,5 +37,18 @@ public class BoletoService {
 
         boletoProducer.enviarMensagem(BoletoMapper.toAvro(boletoEntity));
         return BoletoMapper.toDto(boletoEntity);
+    }
+
+    private BoletoEntity recuperaBoleto(String codigoBarras) {
+        return boletoRepository.findByCodigoBarras(codigoBarras)
+                .orElseThrow(() -> new ResourceNotFoundException("Boleto não encontrado"));
+    }
+
+    public void atualizar(BoletoEntity boleto) {
+        var boletoAtual = recuperaBoleto(boleto.getCodigoBarras());
+
+        boletoAtual.setSituacaoBoleto(boleto.getSituacaoBoleto());
+        boletoAtual.setDataAtualizacao(LocalDateTime.now());
+        boletoRepository.save(boletoAtual);
     }
 }

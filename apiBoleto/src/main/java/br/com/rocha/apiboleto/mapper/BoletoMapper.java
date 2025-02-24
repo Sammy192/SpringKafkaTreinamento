@@ -2,6 +2,7 @@ package br.com.rocha.apiboleto.mapper;
 
 import br.com.rocha.apiboleto.dtos.BoletoDTO;
 import br.com.rocha.apiboleto.entities.BoletoEntity;
+import br.com.rocha.apiboleto.entities.enums.SituacaoBoletoEnum;
 import br.com.rocha.avro.Boleto;
 
 public class BoletoMapper {
@@ -22,10 +23,10 @@ public class BoletoMapper {
                 .build();
     }
 
-   /* public static BoletoEntity toEntity(Boleto boleto) {
+    public static BoletoEntity toEntity(Boleto boleto) {
         return BoletoEntity.builder()
                 .codigoBarras(boleto.getCodigoBarras().toString())
-                .situacaoBoleto(SituacaoBoleto.values()[boleto.getSituacaoBoleto()])
+                .situacaoBoleto(SituacaoBoletoEnum.values()[boleto.getSituacaoBoleto()])
                 .build();
-    }*/
+    }
 }
