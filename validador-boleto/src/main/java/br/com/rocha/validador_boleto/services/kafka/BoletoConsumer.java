@@ -4,6 +4,7 @@ import br.com.rocha.avro.Boleto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.kafka.support.Acknowledgment;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,8 +13,9 @@ public class BoletoConsumer {
     private static final Logger LOGGER = LoggerFactory.getLogger(BoletoConsumer.class);
 
     @KafkaListener(topics = "${spring.kafka.topico-boleto}", groupId = "${spring.kafka.consumer.group-id}")
-    public void consomeBoleto(Boleto boleto) throws InterruptedException {
+    public void consomeBoleto(Boleto boleto, Acknowledgment ack)  throws InterruptedException {
         Thread.sleep(3000);
-        LOGGER.info("Novo boleto recebido: {}", boleto);
+        LOGGER.info(String.format("Consumindo mensagem -> %s", boleto));
+        ack.acknowledge();
     }
 }
