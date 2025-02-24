@@ -2,6 +2,8 @@
 ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
 ![Apache Kafka](https://img.shields.io/badge/Apache%20Kafka-000?style=for-the-badge&logo=apachekafka)
 
+# Microserviços com Mensageria Kafka
+
 # Projeto Validador de Boleto
 
 Projeto desenvolvido durante treinamento da JDevTreinamentos com objetivo de aprofundar conhecimentos sobre Mensageria com Kafka.
